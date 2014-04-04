@@ -1,0 +1,214 @@
+{# Base blog template #}
+
+{% extends "base.html" %}
+
+{# Template macros #}
+{# --------------- #}
+{# Macros to help build the blog system. #}
+{# For more info on jinja2 macros, visit #}
+{# http://jinja.pocoo.org/docs/templates/#macros #}
+
+{# Nospace macro #}
+{# Replace spaces with dashes #}
+{% macro nospace(s) -%}
+    {{ s|replace(" ", "-") }}
+{%- endmacro %}
+
+{# Tag link macro #}
+{# Build a link for a tag, link to its hashed name #}
+{% macro tag_link(tag, label=None, btn=False) -%}
+    <a href='/blog/#{{nospace(tag)}}'
+            class='tag-link {% if btn %}btn btn-large{% endif %}'
+            tag='{{nospace(tag)}}'>
+        {% if label %}
+            {{label}}
+        {% else %}
+            {{tag}}
+        {% endif %}
+    </a>
+{%- endmacro %}
+
+{# Tag list macro #}
+{# Build a tag list from a set of tags #}
+{% macro tag_list(tags) -%}
+    {% for tag in tags %}
+        {% if loop.length == 1 %}
+            {{tag_link(tag)}}
+        {% elif not loop.last %}
+            {{tag_link(tag)}},
+        {% else %}
+            and {{tag_link(tag)}}
+        {% endif %}
+    {% endfor %}
+{%- endmacro %}
+
+
+
+{% block content %}
+        {# Commenting this out until it's working #}
+        {#
+        <!-- Blog filtering -->
+        <div class='span3 hidden-phone'>
+            <ul id='filter-list' class='nav nav-list'>
+
+                <!-- Tags -->
+                <li class='nav-header'>
+                    Tags
+                </li>
+
+                {% for tag in site.tags|sort %}
+                    <li class='filter-link' tag='{{tag}}'>
+                            {{ tag_link(tag, tag + " (" + site.tags[tag]|length|string() +")") }}
+                    </li>
+                {% endfor %}
+
+                <li class="divider"></li>
+
+                <!-- Recent posts -->
+                <div id='recent-posts'>
+                    <li class='nav-header'>
+                        Recent posts
+                    </li>
+
+                    {% for post in site.categories['blog']|sort(attribute='datetime', reverse=True) %}
+                        <li>
+                            <a href='{{ post.url }}'>
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </div>
+            </ul>
+        </div> 
+
+        <!-- Blog content -->
+        <div id='blog-content' class='span9'>
+            <div id='filter-status' class='text-info well'>
+                <strong>
+                    Viewing articles tagged with
+                    "<span class='tag-label'></span>"
+                </strong>
+                <a href='#' class='clear-filter btn btn-mini pull-right'>View all</a>
+            </div>
+        </div>#}
+        
+        {% block blog_content %}{% endblock %}
+
+
+{% endblock %}
+
+
+{# JavaScript #}
+{# ---------- #}
+
+{# JavaScript to run before document loads #}
+{% block js_init %}
+
+    // Tag filtering
+    // -------------
+
+    function filter_by_tag(tag){
+        /* Remove all blog posts that aren't tagged with `tag`, show all that
+        are. Ignore blank tag names.
+        */
+
+        if(tag){
+            $('.blog-post').each(function(index){
+                var tags = $(this).attr('tags').split(' ')
+                var has_tag = false
+
+                for(var i in tags){
+                    if(tags[i] === tag){
+                        has_tag = true
+                        break
+                    }
+                }
+
+                if(has_tag) {
+                    $(this).slideDown("slow")
+                } else {
+                    $(this).slideUp("slow")
+                }
+            });
+        }
+
+        activate_filter_link(tag)
+        show_filter_status(tag)
+    }
+
+    function show_all(){
+        /* Show all blog articles
+        */
+
+        $('.blog-post').slideDown('slow')
+    }
+
+    // Tag link de/activate
+    // --------------------
+
+    function activate_filter_link(tag){
+        /* Radio-activate the specified tag link's list-item
+        */
+        var $link = $('#filter-list .filter-link[tag="' + tag + '"]')
+        deactivate_all_filter_links()
+        $link.addClass('active')
+    }
+
+    function deactivate_all_filter_links(){
+        /* Deactivate all tag links' list items
+        */
+        $('#filter-list li').removeClass('active')
+    }
+
+    // Filter status box
+    // -----------------
+
+    function init_filter_status(){
+        $('#filter-status').hide()
+    }
+
+    function show_filter_status(tag){
+        $('#filter-status').slideDown()
+        $('#filter-status .tag-label').text(tag)
+    }
+
+    function hide_filter_status(){
+        $('#filter-status').slideUp()
+    }
+{% endblock %}
+
+{# JavaScript to run when document is ready #}
+{% block js_doc_ready %}
+
+    // Highlight the 'blog' menu item
+    menu_highlight('blog');
+
+    // Initialize filter status box (hide it)
+    init_filter_status()
+
+    // Filter by tag on load if necessary
+    var filter_on_hash = function(){
+        if(window.location.hash){
+            filter_by_tag(window.location.hash.slice(1));
+        }
+    }();
+
+    // When a tag link is clicked...
+    $('.tag-link').click(function(){
+        /* When the user clicks on a tag link, filter blog articles by the
+        specified tag and activate the link's list item.
+        */
+        filter_by_tag($(this).attr('tag'))
+    });
+
+    // When a 'clear filter' link is clicked...
+    $('a.clear-filter').click(function(){
+        /* When the user clicks on a 'clear filter' link, show all blog
+        articles, and deactivate any filter links.
+        */
+
+        show_all();
+        deactivate_all_filter_links();
+        hide_filter_status();
+    })
+{% endblock %}

@@ -1,0 +1,11 @@
+title: Home
+url: "/index.html"
+tags: [_nav]
+nav_sort: 1
+img: "/images/home-msmw-shop-front.jpg"
+img_alt: "Photo of the shop."
+---
+
+##Thanks for checking on the page
+The blog so far is pretty much just project write ups!
+You can use the about page to learn more _about_ me, and the resume is if you're interested in hiring.

@@ -1,0 +1,4 @@
+site_title: Al Grant
+url_include_index: no
+url_pattern: "/{category}/{slug}/{page}/index.html"
+relative_urls: true

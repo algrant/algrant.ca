@@ -1,0 +1,7 @@
+title: About
+url: /about/index.html
+tags: [_nav]
+nav_sort: 3
+---
+## Al Grant
+Born and raised Vancouverite, schooled, travelled, and settled in Monterrey, Mexico.

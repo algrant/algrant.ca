@@ -1,0 +1,61 @@
+title: Hinged Tessellations
+slug: hinged-tessellations
+type: blog-article
+category: blog
+date: 2014-02-25
+tags: [geometry, python]
+title_img_src: http://img.svbtle.com/al4j2g38imlqww.gif
+snippet: >
+    Finally, a simple blog system implemented using wok. There's 
+    not much to this yet, just a simple list of blog entries, but there are
+    more features to come soon including:
+---
+[![hinge-tess-anim.gif](https://d23f6h5jpj26xu.cloudfront.net/al4j2g38imlqww_small.gif)](http://img.svbtle.com/al4j2g38imlqww.gif)
+
+#What are they?
+A _tessellation_ is a set of figures which can cover the plane indefinitely. A _hinged tessellation_ is a set of figures which not only cover the plane indefinitely, but has a set of hinges such that each figure can rotate about it's neighbours.
+
+#Regular Hinged Tessellations
+The idea of linking a bunch of squares by their vertices has been stumbled across and explored by a number of people, and led to the discovery of a couple other hinged tessellation variations: including two different sized squares, hexagons with triangles, and octagons with squares. 
+
+![HingedTessellation1_700.gif](http://mathworld.wolfram.com/images/eps-gif/HingedTessellation1_700.gif)
+**Like these hinged squares**\[pic from [wolfram mathworld](http://mathworld.wolfram.com/HingedTessellation.html)\]
+
+#Irregular Hinged Tessellations?
+Squares and hexagons are boring. *Of course* they'd work nicely together to hinge.  When I first 'discovered' hinged tessellations I was most interested in which irregular shapes might work (if any).  I was using blocks at the time and with a little experimentation I constructed this:
+
+[<img src="https://d23f6h5jpj26xu.cloudfront.net/oxrvhzmlvds4tw_small.gif" alt="Smiley face" width="300px" class="no-resize">](http://img.svbtle.com/oxrvhzmlvds4tw.gif)
+
+Thus it was clear to me that not only regular polygons could work; as that shape is actually a trapezoid (if we only focus on the hinged vertices).
+
+[![blocks-to-trapezoid.png](https://d23f6h5jpj26xu.cloudfront.net/0fmjaonopan6qw_small.png)](http://img.svbtle.com/0fmjaonopan6qw.png)
+
+
+**Cool**. I of course then sketched out some other trapezoids, and decided that potentially the reason why they can hinge so nicely is because their pairs of corners are both _supplementary_ (add up to 180°).  This seemed especially important due to the fact that when the hinges are 'open', all the holes seemed to be rectangular; thus any two adjoined corners + two right angles must equal 360°.
+
+[![trapezoid-angles.png](https://d23f6h5jpj26xu.cloudfront.net/lh2pu42d6jplbw_small.png)](http://img.svbtle.com/lh2pu42d6jplbw.png)
+Angles *a* + *b* = 180°
+
+Given that a quadrilateral has 4 corners, there are two different way we can set up the supplementary angles, either next to each other (a trapezoid) _or_ opposite each other (a...?) After a bit of thought/googlery I found out it's called a [cyclic quadrilateral](http://en.wikipedia.org/wiki/Cyclic_quadrilateral), because all the vertices sit on a circle.
+
+[![cyclic-quad.png](https://d23f6h5jpj26xu.cloudfront.net/6sw2asorhxdbbq_small.png)](http://img.svbtle.com/6sw2asorhxdbbq.png)
+Angles *a* + *c* = *b* + *d* = 180°
+
+So I knew that one can actually tile the cyclic quadrilateral (because we know we can tile [all quadrilaterals](http://euler.slu.edu/escher/index.php/Tessellations_by_Polygons#Tessellations_by_Quadrilaterals)), but looking at that tessellation (see below) it is pretty clearly not hingeable.
+
+[![tiles-well.png](https://d23f6h5jpj26xu.cloudfront.net/85ewj3pmwha1ga_small.png)](http://img.svbtle.com/85ewj3pmwha1ga.png)
+
+So, I tried a few times tessellating just the cyclic quads in a similar fashion to the trapezoids, but it was apparent that they wouldn't line up correctly.  On a whim I mirrored a couple, and then I was pretty certain I had it right!
+
+[![fold-it.png](https://d23f6h5jpj26xu.cloudfront.net/n6tnhu7os6maeq_small.png)](http://img.svbtle.com/n6tnhu7os6maeq.png)
+
+The next step was trying to come up with a geometric proof, but I had no real idea how to go about it (I'm an engineer! I like finding the answers, but coming up with a real proof seemed pretty tough). I had a meeting with a computer graphics professor one day and brought up this little problem, and his suggestion was just to code up a solution - which seemed like a good plan, as best case scenario I stumble across a proof, worst case, I have a little program to draw hinged tessellations!
+
+Anyway, without further ado:
+
+<div style="width:100%; height:100px; background:'red'">hello world </div>
+
+
+Or check it out on it's own site: 
+
+ 

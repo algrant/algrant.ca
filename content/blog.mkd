@@ -1,0 +1,6 @@
+title: Archive
+type: blog-list
+url: /blog/index.html
+tags: [_nav]
+nav_sort: 2
+---
