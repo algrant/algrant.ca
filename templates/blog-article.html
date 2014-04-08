@@ -66,9 +66,17 @@
     <!-- Disquis comment system -->
     <hr>
     <div id="disqus_thread"></div>
+
     <script type="text/javascript">
         // Disqus config
         var disqus_shortname = 'algrantca';
+        function disqus_config(){
+            console.log(this.callbacks);
+            this.callbacks.afterRender.push(function(){
+                console.log("ready")
+            })
+            console.log(this.callbacks)
+        }
         
         // Disqus init
         (function() {
@@ -77,7 +85,7 @@
             dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] ||
                 document.getElementsByTagName('body')[0]).appendChild(dsq);
-
+            window.onload=function(){window.dispatchEvent(new Event('resize'));};
         })();
         
     </script>
