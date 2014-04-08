@@ -26,7 +26,36 @@
 					the entire "date" element.
 					
 				-->
-				<span class="date"><span class="month">Jan<span>uary</span></span> <span class="day">14</span><span class="year">, 2013</span></span>
+
+                <span class="date"> 
+                {% if page.date.month == 1 %}
+                    <span class="month">Jan<span>uary</span></span> 
+                {% elif page.date.month == 2 %}
+                    <span class="month">Feb<span>ruary</span></span> 
+                {% elif page.date.month == 3 %}
+                    <span class="month">Mar<span>ch</span></span> 
+                {% elif page.date.month == 4 %}
+                    <span class="month">Apr<span>il</span></span> 
+                {% elif page.date.month == 5 %}
+                    <span class="month">May<span></span></span> 
+                {% elif page.date.month == 6 %}
+                    <span class="month">Jun<span>e</span></span> 
+                {% elif page.date.month == 7 %}
+                    <span class="month">Jul<span>y</span></span> 
+                {% elif page.date.month == 8 %}
+                    <span class="month">Aug<span>ust</span></span> 
+                {% elif page.date.month == 9 %}
+                    <span class="month">Sep<span>tember</span></span> 
+                {% elif page.date.month == 10 %}
+                    <span class="month">Oct<span>ober</span></span> 
+                {% elif page.date.month == 11 %}
+                    <span class="month">Nov<span>ember</span></span> 
+                {% elif page.date.month == 12 %}
+                    <span class="month">Dec<span>ember</span></span> 
+                {% endif %}             
+                    <span class="day">{{ page.date.day }}</span>
+                    <span class="year">, {{ page.date.year }}</span>
+                </span>
 				<!--
 					Note: You can change the number of list items in "stats" to whatever you want.
 				-->
@@ -39,7 +68,7 @@
 			</div>
 
             <div class='subtitle muted'>
-                {{page.date}}
+                
 
                 {% if page.tags %}
                     | in {{ tag_list(page.tags) }}

@@ -1,8 +1,8 @@
 title: Blog
 type: blog-article
-category: blog
-date: 2011-08-10
-tags: [meta]
+category: projects
+date: 2011-10-11
+tags: []
 title_img_src: https://lh6.googleusercontent.com/-I4HY5n4IR0w/ToZWu6jcVfI/AAAAAAAADHI/prnmyIiVqcw/s144/Capture.PNG 
 snippet: >
     Finally, a simple blog system implemented using wok. There's 

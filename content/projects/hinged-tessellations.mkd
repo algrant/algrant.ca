@@ -1,8 +1,8 @@
 title: Hinged Tessellations
 slug: hinged-tessellations
 type: blog-article
-category: blog
-date: 2014-02-25
+category: projects
+date: 2011-10-12
 tags: [geometry, python]
 title_img_src: http://img.svbtle.com/al4j2g38imlqww.gif
 snippet: >
@@ -10,7 +10,7 @@ snippet: >
     not much to this yet, just a simple list of blog entries, but there are
     more features to come soon including:
 ---
-[![hinge-tess-anim.gif](https://d23f6h5jpj26xu.cloudfront.net/al4j2g38imlqww_small.gif)](http://img.svbtle.com/al4j2g38imlqww.gif)
+![hinge-tess-anim.gif](/images/hinged-tessellations/hinge-tess-anim.gif)
 
 #What are they?
 A _tessellation_ is a set of figures which can cover the plane indefinitely. A _hinged tessellation_ is a set of figures which not only cover the plane indefinitely, but has a set of hinges such that each figure can rotate about it's neighbours.
@@ -24,21 +24,22 @@ The idea of linking a bunch of squares by their vertices has been stumbled acros
 #Irregular Hinged Tessellations?
 Squares and hexagons are boring. *Of course* they'd work nicely together to hinge.  When I first 'discovered' hinged tessellations I was most interested in which irregular shapes might work (if any).  I was using blocks at the time and with a little experimentation I constructed this:
 
-[<img src="https://d23f6h5jpj26xu.cloudfront.net/oxrvhzmlvds4tw_small.gif" alt="Smiley face" width="300px" class="no-resize">](http://img.svbtle.com/oxrvhzmlvds4tw.gif)
+![trapezoid.gif](/images/hinged-tessellations/trapezoid.gif)
 
 Thus it was clear to me that not only regular polygons could work; as that shape is actually a trapezoid (if we only focus on the hinged vertices).
 
-[![blocks-to-trapezoid.png](https://d23f6h5jpj26xu.cloudfront.net/0fmjaonopan6qw_small.png)](http://img.svbtle.com/0fmjaonopan6qw.png)
-
+![blocks-to-trapezoid.png](/images/hinged-tessellations/blocks-to-trapezoid.png)
 
 **Cool**. I of course then sketched out some other trapezoids, and decided that potentially the reason why they can hinge so nicely is because their pairs of corners are both _supplementary_ (add up to 180°).  This seemed especially important due to the fact that when the hinges are 'open', all the holes seemed to be rectangular; thus any two adjoined corners + two right angles must equal 360°.
 
-[![trapezoid-angles.png](https://d23f6h5jpj26xu.cloudfront.net/lh2pu42d6jplbw_small.png)](http://img.svbtle.com/lh2pu42d6jplbw.png)
+![trapezoid-angles.png](/images/hinged-tessellations/trapezoid-angles.png)
 Angles *a* + *b* = 180°
 
 Given that a quadrilateral has 4 corners, there are two different way we can set up the supplementary angles, either next to each other (a trapezoid) _or_ opposite each other (a...?) After a bit of thought/googlery I found out it's called a [cyclic quadrilateral](http://en.wikipedia.org/wiki/Cyclic_quadrilateral), because all the vertices sit on a circle.
 
-[![cyclic-quad.png](https://d23f6h5jpj26xu.cloudfront.net/6sw2asorhxdbbq_small.png)](http://img.svbtle.com/6sw2asorhxdbbq.png)
+![cyclic-quad.png](/images/hinged-tessellations/cyclic-quad.png)
+Angles *a* + *b* = 180°
+
 Angles *a* + *c* = *b* + *d* = 180°
 
 So I knew that one can actually tile the cyclic quadrilateral (because we know we can tile [all quadrilaterals](http://euler.slu.edu/escher/index.php/Tessellations_by_Polygons#Tessellations_by_Quadrilaterals)), but looking at that tessellation (see below) it is pretty clearly not hingeable.
