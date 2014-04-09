@@ -1,0 +1,75 @@
+title: Fifteen Letter Scrabble Words
+slug: scrabble-15
+type: blog-article
+category: projects
+date: 2012-12-05
+tags: [wordgames, python]
+title_img_src: /images/scrabble15/scrabble15.jpg
+snippet: >
+    The other evening while playing Scrabble I was thinking about the biggest word one could actually play. Obviously 8 letter words come up often, and coming up with 9 letter examples is also quite straight forward. 
+---
+![scrabble15.jpg](/images/scrabble15/scrabble15.jpg)
+The other evening while playing Scrabble I was thinking about the biggest word one could actually play. Obviously 8 letter words come up often, and coming up with 9 letter examples are also quite straight forward. Given that a Scrabble board is 15x15, _clearly_ the challenge would be finding 15 letter words. In that evening we came up with a few examples, the only one I can currently recall having organically puzzled out is "inter<strong>national</strong>ly".
+
+A couple of days later this puzzle popped back into my head (somehow during exam period I always feel the need to solve trivial problems) and so I quickly wrote a Python script to find all possible solutions within a dictionary.  This proved to be rather straight forward and in fifteen seconds it spat out a list of 771 words: from <strong>abstract</strong>ionisms to woebe<strong>goneness</strong>es (which according to the<a href="http://www.puzzlers.org/dokuwiki/doku.php?id=solving:wordlists:about:start"> enable word list</a> are real Scrabble playable words).
+
+The next (obvious?) question for me was whether or not one could fit six 15 letter words in a Scrabble game, covering each triple word score in both directions. This proved to be far more challenging; seeing as the only way to find solutions is to search through the solution space, which in our case is any combination of six fifteen letter words, or 771^6 = 2.1*10^17.
+
+The trick was to try and cut down on potential solutions by disqualifying as many word sets as early as possible in the algorithm. I did this in a few ways; first I reduced the number of words to search through by looking only at the letters in the crossing points (first, middle, last). Many words became the same then, like '<span style="text-decoration: underline;">d</span>isappo<span style="text-decoration: underline;">i</span>ntment<span style="text-decoration: underline;">s</span>' and '<span style="text-decoration: underline;">d</span>iscont<span style="text-decoration: underline;">i</span>nuance<span style="text-decoration: underline;">s</span>' are both looked at as 'dis'. I then made three dictionaries, the first two map all the one and two letter prefixes to their triples, the third maps triples to their full words.  This allows for a quick look up of allowable words given one, two or three constraints.
+
+With these tools it's still necessary to do loop within loop, but the inner loops get progressively smaller as we can quickly look up the words that match the necessary constraints.
+
+A couple other tests were added to make sure a solution could be created given the Scrabble letter distribution, and to print out the six 15 letter words as though it were on the game board.
+
+It takes about 2 minutes to run on my machine, and finds that there are only 18 working configurations. Looking through them I think my favourite is the following:
+
+<pre> paleobi(ologists)
+ prep(resident)ial
+ de(hydrogen)ation
+
+ photodu(plicated)
+ over(engineer)ing
+ (subvocal)ization
+
+ p a l e o b i o l o g i s t s
+ h             v             u
+ o             e             b
+ t             r             v
+ o             e             o
+ d             n             c
+ u             g             a
+ p r e p r e s i d e n t i a l
+ l             n             i
+ i             e             z
+ c             e             a
+ a             r             t
+ t             i             i
+ e             n             o
+ d e h y d r o g e n a t i o n</pre>
+
+
+That was a pretty entertaining experiment, but now (as always) I want to keep extending the scope.  There are a few next steps to this project; one would be to fill arbitrary patterns with words (crossword puzzle solver), finding the densest Scrabble game possible, finding impossible to complete Scrabble games (i.e. sets of word which you have no opportunity to play off of), extremely high scoring Scrabble games, etc. 
+
+Moral of the story: a trivial puzzle-solvers work is never done.
+
+
+[sourcecode language="python"]
+    import sys
+
+    eightletter = []
+    fifteenletter = []
+
+    for word in open(&amp;quot;enable1.txt&amp;quot;):
+        w = word.strip()
+        if len(w) == 8:
+            eightletter.append(w)
+        elif len(w) == 15:
+            fifteenletter.append(w)
+
+    scrabble15 = open(&amp;quot;scrabble15.txt&amp;quot;, &amp;quot;w&amp;quot;)
+
+    for word15 in fifteenletter:
+        for word8 in eightletter:
+            if word8 in word15:
+                scrabble15.write(&amp;quot;%s %s n&amp;quot;%(word15,word8))
+[/sourcecode]
