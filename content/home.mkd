@@ -6,6 +6,7 @@ img: "/images/home-msmw-shop-front.jpg"
 img_alt: "Photo of the shop."
 ---
 
-##Thanks for checking on the page
-The blog so far is pretty much just project write ups!
-You can use the about page to learn more _about_ me, and the resume is if you're interested in hiring.
+## Hello
+I've made a little portfolio site!
+
+Projects written so far are about [Hinged Tessellations](/projects/hinged-tessellations), and 15 letter scrabble words.  Future write ups include Skittle flavour combinations (are there _REALLLY_ an infinite number of them?) and an Inkscape extension I wrote which determines the centre of gravity of a bezier curve (greene's theorem!)

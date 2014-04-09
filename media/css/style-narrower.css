@@ -26,7 +26,7 @@
 	#titleBarNarrower .title
 	{
 		color: #fff;
-		line-height: 60px;
+		height: 60px;
 		font-size: 1.25em;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
@@ -154,7 +154,7 @@
 		
 	#sidebar
 	{
-		width: auto;
+		width: 100%;
 		background: none;
 		padding: 30px 20px 30px 20px;
 	}

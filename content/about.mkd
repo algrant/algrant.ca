@@ -3,5 +3,15 @@ url: /about/index.html
 tags: [_nav]
 nav_sort: 3
 ---
-## Al Grant
-Born and raised Vancouverite, schooled, travelled, and settled in Monterrey, Mexico.
+## This page is named after me.
+
+<div class="image image-centred">
+
+<img src= "/images/al.jpg" alt-txt="This is Al!">
+
+
+</div>
+
+I come from Vancouver, went to school in the University of Waterloo, and then travelled for quite a while!
+
+Now I live in Monterrey, Mexico with my girlfriend.  

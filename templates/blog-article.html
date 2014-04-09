@@ -46,12 +46,7 @@
                     <!--
                         Note: You can change the number of list items in "stats" to whatever you want.
                     -->
-                    <ul class="stats">
-                        <li><a href="#" class="fa fa-comment">16</a></li>
-                        <li><a href="#" class="fa fa-heart">32</a></li>
-                        <li><a href="#" class="fa fa-twitter">64</a></li>
-                        <li><a href="#" class="fa fa-facebook">128</a></li>
-                    </ul>
+
                 </div>
                 {% if page.tags %}
                     posted in {{ tag_list(page.tags) }}
@@ -65,34 +60,6 @@
 
     <!-- Disquis comment system -->
     <hr>
-    <div id="disqus_thread"></div>
 
-    <script type="text/javascript">
-        // Disqus config
-        var disqus_shortname = 'algrantca';
-        function disqus_config(){
-            console.log(this.callbacks);
-            this.callbacks.afterRender.push(function(){
-                console.log("ready")
-            })
-            console.log(this.callbacks)
-        }
-        
-        // Disqus init
-        (function() {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] ||
-                document.getElementsByTagName('body')[0]).appendChild(dsq);
-            window.onload=function(){window.dispatchEvent(new Event('resize'));};
-        })();
-        
-    </script>
-    <noscript>
-        Please enable JavaScript to view the
-        <a href="http://disqus.com/?ref_noscript">comments powered by Disqus
-        </a>.
-    </noscript> <!--/disquis -->
 
 {% endblock %}

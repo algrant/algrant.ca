@@ -56,7 +56,7 @@
 	#titleBar .title
 	{
 		color: #fff;
-		line-height: 44px;
+		height: 44px;
 		font-size: 1.25em;
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-weight: 700;
