@@ -1,0 +1,42 @@
+<div id = "hi">
+	<div id = "title-box">
+		<h1> Hinged Tessellations </h1>
+	</div>
+
+	<div class="clear"></div>
+	
+	<div id = "ui-container">
+		<div id="ui-col1">
+			<div id='quadrilateral-option'>
+				<input type='radio' name='task-sort' id='trap' checked><label id="trap_label" for='trap'>trapezoid</label>
+				<input type='radio' name='task-sort' id='cyclic'><label id="cyclic_label"  for='cyclic'>cyclic</label>
+			</div>
+			<div id="quad_canvas" style="position:relative; width:200px; height:200px"></div>
+		</div>
+		<div id = "ui-col3">
+			<div id = "theta-slider">
+					<label > Angle Open: </label>
+
+					<div id="sliderInput-slider" class="ui-slider-1" style="margin:10px;">
+						<div class="ui-slider-handle"></div>
+					</div>
+					<input type="text" class="sliderInput-input" id="slider-input" />
+			</div>
+			<div id = "option-buttons">
+				<input type="checkbox" id="show_grid" width="200px"/><label for="show_grid" width="200px">Show Grid</label>
+			</div>
+		</div>
+
+		<div class="clear">
+		</div>
+	</div>
+	<div id = "tessellation-canvas">
+		<div id="hta_tess">
+				<canvas id="tess_canvas" width="600" height="600"></canvas>
+			</div>
+	</div>
+	<div id = "footer">
+		<p> Bottom of the page </p>
+	</div>
+	context-box bottom
+</div>

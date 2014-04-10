@@ -100,7 +100,7 @@
 				margin: 0 0 0.75em 0;
 			}
 
-				.is-post .info .date .year,
+				.is-post .info .date .year span,
 				.is-post .info .date .month span
 				{
 					display: none;
@@ -109,7 +109,7 @@
 				.is-post .info .date .day
 				{
 					display: block;
-					margin: 0.25em 0 0 0;
+					margin: 0.25em 0 .1em 0;
 					font-size: 1.5em;
 					font-weight: 700;
 					color: #1b252a;

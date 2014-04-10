@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{%- if page.extraCSS %}
+	{% block style %}
+		{%- for style in page.extraCSS %}
+			<link rel="stylesheet" href=" {{ style }}" />
+		{%- endfor %}
+	{% endblock %}
+{%- endif %}
+
+{% block content %}
+{{page.content}}
+{% endblock %}
+
+{%- if page.extraJS %}
+	{% block jsLoad %}
+		{%- for js in page.extraJS %}
+			<script src="{{ js }}"></script>
+		{%- endfor %}
+	{% endblock %}
+{%- endif %}

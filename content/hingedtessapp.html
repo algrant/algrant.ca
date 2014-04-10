@@ -1,0 +1,50 @@
+title: Hinged Tessellations App
+type: app
+
+extraCSS: ["http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css", /hingetessapp/css/hingetess.css]
+extraJS: ["http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", /hingetessapp/js/canvasStack1v00.js,/hingetessapp/js/geometry.js, /hingetessapp/js/hingetess.js]
+---
+
+<div id = "hi">
+    <div id = "title-box">
+        <h1> Hinged Tessellations </h1>
+    </div>
+    <div class="clear"></div>
+    <div id = "ui-container">
+        <div id="ui-col1">
+        <br>
+        <p>
+            Try moving the vertices, switching from a trapezoid to a cyclic quadrilateral, and changing the angle at which the tessellation is open! </p>
+        </div>
+        <div id="ui-col2">
+            <div id='quadrilateral-option'>
+                <input type='radio' name='task-sort' id='trap' checked><label id="trap_label" for='trap'>trapezoid</label>
+                <input type='radio' name='task-sort' id='cyclic'><label id="cyclic_label"  for='cyclic'>cyclic</label>
+            </div>
+            <div id="quad_canvas" style="position:relative; width:200px; height:200px"></div>
+        </div>
+        <div id = "ui-col3">
+            <div id = "theta-slider">
+                    <label > Angle Open: </label>
+                    <div id="sliderInput-slider" class="ui-slider-1" style="margin:10px;">
+                        <div class="ui-slider-handle"></div>
+                    </div>
+                    <input type="text" class="sliderInput-input" id="slider-input" />
+            </div>
+            <div id = "option-buttons">
+                <input type="checkbox" id="show_grid" width="200px"/><label for="show_grid" width="200px">Show Grid</label>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div id = "tessellation-canvas">
+        <div id="hta_tess">
+                <canvas id="tess_canvas" width="600" height="600"></canvas>
+            </div>
+    </div>
+    <div id = "footer">
+        <p> Sorry for the bugs, but this was from a few years back and one of my first forays into programming for the web!  Why it's jumping at 0, 90 and 180 degrees sometimes is beyond me right now - but one day maybe I'll get the chance to re-write this with my current skills. </p>
+        <p> If you're curious, read this blog article about <a href="/projects/hinged-tessellations"> hinged tessellations </a> </p>
+    </div>
+</div>
