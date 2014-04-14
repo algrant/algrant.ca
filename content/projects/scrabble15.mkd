@@ -7,6 +7,7 @@ tags: [wordgames, python]
 title_img_src: /images/scrabble15/scrabble15.jpg
 snippet: >
     The other evening while playing Scrabble I was thinking about the biggest word one could actually play. Obviously 8 letter words come up often, and coming up with 9 letter examples is also quite straight forward. 
+extraCSS: [/assets/FlexSlider-version-2.2/flexslider.css, /css/autumn.css]
 ---
 ![scrabble15.jpg](/images/scrabble15/scrabble15.jpg)
 The other evening while playing Scrabble I was thinking about the biggest word one could actually play. Obviously 8 letter words come up often, and coming up with 9 letter examples are also quite straight forward. Given that a Scrabble board is 15x15, _clearly_ the challenge would be finding 15 letter words. In that evening we came up with a few examples, the only one I can currently recall having organically puzzled out is "inter<strong>national</strong>ly".
@@ -23,53 +24,110 @@ A couple other tests were added to make sure a solution could be created given t
 
 It takes about 2 minutes to run on my machine, and finds that there are only 18 working configurations. Looking through them I think my favourite is the following:
 
-<pre> paleobi(ologists)
- prep(resident)ial
- de(hydrogen)ation
+    paleobi(ologists)
+    prep(resident)ial
+    de(hydrogen)ation
 
- photodu(plicated)
- over(engineer)ing
- (subvocal)ization
+    photodu(plicated)
+    over(engineer)ing
+    (subvocal)ization
 
- p a l e o b i o l o g i s t s
- h             v             u
- o             e             b
- t             r             v
- o             e             o
- d             n             c
- u             g             a
- p r e p r e s i d e n t i a l
- l             n             i
- i             e             z
- c             e             a
- a             r             t
- t             i             i
- e             n             o
- d e h y d r o g e n a t i o n</pre>
+    p a l e o b i o l o g i s t s
+    h             v             u
+    o             e             b
+    t             r             v
+    o             e             o
+    d             n             c
+    u             g             a
+    p r e p r e s i d e n t i a l
+    l             n             i
+    i             e             z
+    c             e             a
+    a             r             t
+    t             i             i
+    e             n             o
+    d e h y d r o g e n a t i o n
 
 
 That was a pretty entertaining experiment, but now (as always) I want to keep extending the scope.  There are a few next steps to this project; one would be to fill arbitrary patterns with words (crossword puzzle solver), finding the densest Scrabble game possible, finding impossible to complete Scrabble games (i.e. sets of word which you have no opportunity to play off of), extremely high scoring Scrabble games, etc. 
 
 Moral of the story: a trivial puzzle-solvers work is never done.
 
+<div class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="/images/scrabble15/winningBoards/board0.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board1.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board2.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board3.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board4.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board5.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board6.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board7.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board8.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board9.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board10.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board11.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board12.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board13.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board14.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board15.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board16.gif" />
+    </li>
+    <li>
+      <img src="/images/scrabble15/winningBoards/board17.gif" />
+    </li>
+  </ul>
+</div>
 
-[sourcecode language="python"]
-    import sys
+<!--style>
+.flex-direction-nav .flex-next { right: 0 !important; margin-right: -30px; 
+   opacity: 1 !important; }
 
-    eightletter = []
-    fifteenletter = []
+.flex-direction-nav .flex-prev { left: 0 !important; opacity: 1 !important; 
+   margin-left: -30px; }
 
-    for word in open(&amp;quot;enable1.txt&amp;quot;):
-        w = word.strip()
-        if len(w) == 8:
-            eightletter.append(w)
-        elif len(w) == 15:
-            fifteenletter.append(w)
-
-    scrabble15 = open(&amp;quot;scrabble15.txt&amp;quot;, &amp;quot;w&amp;quot;)
-
-    for word15 in fifteenletter:
-        for word8 in eightletter:
-            if word8 in word15:
-                scrabble15.write(&amp;quot;%s %s n&amp;quot;%(word15,word8))
-[/sourcecode]
+.flexslider { width: 90%; margin: 0 auto; }
+</style--!>
+<script src="/assets/FlexSlider-version-2.2/jquery.flexslider-min.js"></script>
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function() {
+      $('.flexslider').flexslider({
+        animation: "slide",
+        slideshow:false
+      });
+    });
+</script>

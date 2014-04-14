@@ -2,11 +2,15 @@ title: Home
 url: "/index.html"
 tags: [_nav]
 nav_sort: 1
-img: "/images/home-msmw-shop-front.jpg"
-img_alt: "Photo of the shop."
 ---
 
-## Hello
-I've made a little portfolio site!
+## Welcome
 
-Projects written so far are about [Hinged Tessellations](/projects/hinged-tessellations), and 15 letter scrabble words.  Future write ups include Skittle flavour combinations (are there _REALLLY_ an infinite number of them?) and an Inkscape extension I wrote which determines the centre of gravity of a bezier curve (greene's theorem!)
+This is the portfolio site of Al Grant, live and on the air! <br>
+I am a programmer, designer, maker, and fanatic about of all things art & engineering. <br>
+Every week I'll try to add a new project to the projects page, seeing as I have a back log of things to talk about!
+
+![three-way-trammel-alpha.gif](/images/three-way-trammel-alpha.gif)
+<span class="caption"> I made this in January! It's a <a href="http://en.wikipedia.org/wiki/Trammel_of_Archimedes"> three way trammel </a>, this will be a future article!</span>
+
+Projects written so far are about [Hinged Tessellations](/projects/hinged-tessellations), and [15 letter scrabble words](/projects/scrabble-15).  Future write ups include Skittle flavour combinations (are there _REALLLY_ an infinite number of them?) and an Inkscape extension I wrote which determines the centre of gravity of a bezier curve (greene's theorem!)

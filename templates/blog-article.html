@@ -2,8 +2,15 @@
 
 {% extends "blog-base.html" %}
 
-{% block blog_content %}
+{%- if page.extraCSS %}
+    {% block style %}
+        {%- for style in page.extraCSS %}
+            <link rel="stylesheet" href=" {{ style }}" />
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
 
+{% block blog_content %}
         <article class="is-post">
                 <header>
                     <h2><a href="/{{ page.url }}">{{ page.title }}</a></h2>
@@ -60,6 +67,12 @@
 
     <!-- Disquis comment system -->
     <hr>
-
-
 {% endblock %}
+
+{%- if page.extraJS %}
+    {% block jsLoad %}
+        {%- for js in page.extraJS %}
+            <script src="{{ js }}"></script>
+        {%- endfor %}
+    {% endblock %}
+{%- endif %}
