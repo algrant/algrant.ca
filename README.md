@@ -30,6 +30,13 @@ By default, files will be generated in the `output` directory in the project roo
 # This readme
 Was lifted and modified from the [source code][robmd-source] for [robatron's site][robmd].
 
+#TODO
+
+* Redo theme/template to get rid of skel.js dependency
+* Put comments back in once skel.js is gone
+* Make hinge tessellation app mobile friendly..? Or make fail cleanly!
+* More articles!
+
 [mysite]: http://algrant.ca
 [woksite]: https://github.com/mythmon/wok
 [mikesite]: https://github.com/mythmon
