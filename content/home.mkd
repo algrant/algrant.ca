@@ -6,7 +6,7 @@ nav_sort: 1
 
 ## Welcome
 
-This is the portfolio site of Al Grant: programmer, designer, maker, and fanatic about of all things art & engineering!
+This is the portfolio site of Al Grant: developer, designer, maker, and fanatic about of all things art & engineering!
 ![three-way-trammel-alpha.gif](/images/three-way-trammel-alpha.gif)
 <span class="caption"> I wanted a picture on the home page, so here's a three track <a href="http://en.wikipedia.org/wiki/Trammel_of_Archimedes">trammel</a> which I designed and built in January!</span>
 
