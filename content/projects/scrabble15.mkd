@@ -106,7 +106,7 @@ With these dictionaries it's still necessary to run loops within loops, but the 
 
 The only question I'm left asking with this project is, what are the final scores?
 
-While solving this puzzle I had a couple other questions come to mind. First would be determining achievable yet unplayable board positions; I've never been in such a situation, but I feel like it would be pretty funny. Second would "simply" be generating the highest possible Scrabble score. Both of these questions are likely to be a lot more challenging as there are simply too many outcomes to check with a brute force method.
+While solving this puzzle I had a couple other questions come to mind. First would be determining achievable positions from which no word could possibly be added; I've never been in such a situation, but I feel like it would be pretty funny! Second would "simply" be generating the highest possible Scrabble score. Both of these questions are likely to be a lot more challenging as there are probably too many outcomes to check with a brute force method.
 
 Here's the link to my [github Scrabble 15 project](http://github.com/algrant/scrabble15) where you can find all the project code.
 
