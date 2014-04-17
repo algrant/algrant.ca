@@ -31,7 +31,8 @@
 	img + span.caption {
 		text-align:center;
 		display: block;
-		margin-top: -1.25em;
+		margin-top: -1em;
+		font-weight: bold;
 	}
 
 	body, input, textarea

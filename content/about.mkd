@@ -1,14 +1,14 @@
-title: About
+title: About Me
 url: /about/index.html
 tags: [_nav]
 nav_sort: 3
 ---
-## This page is named after me.
+## This is Al!
 
 <div class="image image-centred">
 
 <img src= "/images/al.jpg" alt-txt="This is Al!">
-
+<span class="caption"> From when I had a giant beard </span>
 </div>
 
 I come from Vancouver, got a B.A.Sc. from the <a href="http://uwaterloo.ca">University of Waterloo</a>, and (after wandering for a few years) am now living in Monterrey, Mexico.

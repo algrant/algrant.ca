@@ -54,7 +54,7 @@ I knew that one can actually tile the cyclic quadrilateral (because it's been pr
 I first tried a few times tessellating just the cyclic quads in a similar fashion to the trapezoids, but it was apparent that they wouldn't line up correctly.  On a whim I mirrored a couple of the pieces, and then I was pretty certain I had a hingeable structure!
 
 ![fold-it.png](/images/hinged-tessellations/fold-it.png)
-<span class="caption"> Blue tiles are mirror images, see how edges all lie on a line (left and right) or lie parallel to one another (top and bottom) </span>
+<span class="caption"> Blue tiles are mirror images, note how external edges all lie on parallel lines </span>
 
 The next step was trying to come up with a geometric proof, but as I had no good idea of how to go about it I ended up writing this little javascript/canvas app which would let you try all of them!
 
@@ -101,11 +101,11 @@ The next step was trying to come up with a geometric proof, but as I had no good
     </div>
 </div>
 
-The app has a standalone page [here](/hingedtessapp).  There are some odd bugs I can't seem to iron out right now, occasionally doubling the size of some tiles at 0, 90 and 180 degrees; probably some odd division error somewhere.  The code can be viewed on github at [github.com/algrant/hinged-tess-app](http://github.com/algrant/hinged-tess-app).
+The app has a standalone page [here](/hingedtessapp).  There are some odd bugs that I don't remember existing when I oringally wrote this; namely, occasionally doubling the size of some tiles at 0, 90 and 180 degrees.  The code can be viewed on github at [github.com/algrant/hinged-tess-app](http://github.com/algrant/hinged-tess-app).
 
 ## Future Work
 
-So you may have noticed that the title of this post ends with (Part 1).  This is because I have done a lot more work following this, but am not in the mood to organise and write it all up just now!
+So you may have noticed that the title of this post ends with (Part 1).  This is because I have done a lot more work following this, but would prefer to split it up into future articles!
 
 These include:
 
