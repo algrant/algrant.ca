@@ -1,0 +1,39 @@
+
+#cv * { margin: 0; padding: 0; border: 0; }
+
+#cv { min-width:240px; margin: 5px auto; padding: 10px; 
+     font: 12px/1.7 sans; border-right: ;}
+#cv h1 {  font-size: 4em; font-weight: normal; display: inline; line-height: 1em;}
+#cv h3 { line-height: 20px; font-weight: 600; }
+#cv h4 { text-align: left; font:16px sans;
+   text-transform: uppercase; margin-top: 0px; margin-bottom: 5px;color: #AAA; 
+   font-weight: normal; border-bottom: 1px solid #AAA;}
+#cv ul { padding-left: 25px; }
+#cv .nice-list li{ list-style-type: square;}
+#cv p  { margin-bottom: 10px;}
+#cv hr { border-bottom: 1px solid #000;padding-top:10px;}
+#cv td { padding: 0px 5px 5px 5px; }
+#cv section { margin-bottom: 20px; display: block; position: relative; margin-right: 20px; }
+#cv a { color:#343488; }
+#cv header { /*height:100px;*/ }
+#cv #title { 
+	/*padding-top:60px;*/
+}
+#cv .location {float:left; width:100%;}
+#cv .sub { color: #666; font-style: italic; }
+#cv .content { width:100%; float:left; position:relative;}
+#cv .block {  overflow: auto; margin-top: 20px;}
+#cv .content-container { padding-left: 120px;}
+#cv .content h4 { font-style: italic; color: #333;}
+
+#cv .date { position: absolute;
+			top: 0px;
+			left: -120px;
+			width: 100px;
+			line-height: 20px;}
+#cv .description{text-align: justify;}
+#cv .desc { vertical-align: top;width: 250px; height: 100%;  }
+#cv #face-photo { float: right; height:100%; margin-left:5px;}
+#cv #contact { float: right; text-align: right; list-style-type: none; font-size:12px;}
+#cv img {display:inline-block;}
+#cv section {max-width: none;}

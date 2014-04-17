@@ -9,9 +9,12 @@ nav_sort: 3
 
 <img src= "/images/al.jpg" alt-txt="This is Al!">
 
-
 </div>
 
-I come from Vancouver, went to school in the University of Waterloo, and then travelled for quite a while!
+I come from Vancouver, got a B.A.Sc. from the <a href="http://uwaterloo.ca">University of Waterloo</a>, and (after wandering for a few years) am now living in Monterrey, Mexico.
 
-Now I live in Monterrey, Mexico with my girlfriend.  
+I'm currently on the hunt for exciting remote (or semi-remote) work opportunities. I have been doing short-term solo contracts on [oDesk](https://www.odesk.com/users/~015d93ded55c7f54ff), but I am really hoping to find a position which accomodates remote workers while still having the benefits of being on a team!
+
+Outside of the hobbies shown on this site I also enjoy hiking, swimming, juggling, and playing board games.
+
+**Al Grant** | [al@algrant.ca](mailto:al@algrant.ca)

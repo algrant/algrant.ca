@@ -1,22 +1,6 @@
-/*!
- * Hinged Tessellation App
- *
- * Written for the sake of demonstrating that any quadrilateral with 
- * any two angles adding up to 180 degrees will always be hinge-tessellable.
- *
- * YMMV, not written with public consumption in mind.
- *
- * Copyright (c) 2013 Al Grant (http://www.algrant.ca)
- *
- * Licensed under MIT:
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Based almost entirely on this: 
- * http://www.cgl.uwaterloo.ca/~csk/projects/escherization/geo.py.txt
- */
-
-
-
+//Hinged Tessellation App
+//  Written for the sake of demonstrating that any quadrilateral with 
+//  any two angles adding up to 180 degrees will always be hinge-tessellable.
 
 //UI Stuff
 (function( $ ){ //sliderInput
@@ -126,16 +110,16 @@ function me_cyclic(ev){
     y = ev.offsetY - 100;
     
     
-    mouse_point = new simple2d.Point(x,y);
+    mouse_point = new Point(x,y);
     cyclic_canvas[3].save();
     nearest = -1;
     last_best = 400; //greater distance than possible...
 
     for (i=0;i<=3;i++){
     	if(cyc_or_trap){
-        	d_temp = (new simple2d.Point(cur_quad[i].x*1.15,cur_quad[i].y*1.15)).distance(mouse_point)
+        	d_temp = (new Point(cur_quad[i].x*1.15,cur_quad[i].y*1.15)).distance(mouse_point)
         }else{
-	    	d_temp = (new simple2d.Point(cur_quad[i].x,cur_quad[i].y)).distance(mouse_point)
+	    	d_temp = (new Point(cur_quad[i].x,cur_quad[i].y)).distance(mouse_point)
 	    };
 
         if (d_temp < last_best){
@@ -214,9 +198,9 @@ function cyclic_dragtool(){
       if (tool.started) {
         //update that point...
         if (cyc_or_trap){ 	//cyclic
-	        mouse_vec = new simple2d.Point(ev.offsetX-100,ev.offsetY-100);
+	        mouse_vec = new Point(ev.offsetX-100,ev.offsetY-100);
 	        mouse_vec = mouse_vec.normalise()
-	        cur_quad[selecteditem] = new simple2d.Point(mouse_vec.x*70,mouse_vec.y*70);
+	        cur_quad[selecteditem] = new Point(mouse_vec.x*70,mouse_vec.y*70);
 	        //cyclic_quad = cur_quad.slice(0);
         }else{				//trapezoid
 
@@ -330,7 +314,7 @@ function update_tess(){
 		tiles[3] = new Array();
 		
 		//rotate about 0 by alpha
-		trans = simple2d.rotate(alpha*Math.PI/180)
+		trans = rotate(alpha*Math.PI/180)
 		for (i=0;i<=3;i++){
 			tiles[0][i] = trans.mult(tiles[0][i]);
 			tiles[0][i] = tiles[0][i].mult(.5)
@@ -343,16 +327,16 @@ function update_tess(){
 			//flip along m_vec, which is the vector addition of lines 01 & 23; effectively mirroring quadrilateral
 			//and forces line [0]01 to be at the same angle as [1]32, i.e. the correct angle for closed position theta.
 		m_vec = ((tiles[0][3].sub(tiles[0][2])).normalise()).add((tiles[0][0].sub(tiles[0][1])).normalise());
-		m_trans = simple2d.reflect(m_vec);
+		m_trans = reflect(m_vec);
 
 		//rotation transform (-theta... because that's how I set it up foolishly!)
-		m_trans = m_trans.mult(simple2d.rotate(-theta*Math.PI/180));
+		m_trans = m_trans.mult(rotate(-theta*Math.PI/180));
 		
 		for (i=0;i<=3;i++){
 			tiles[1][i] = m_trans.mult(tiles[0][i]);
 		};
 		// 2: 0 rotated by 180, 
-		trans = simple2d.rotate(Math.PI);
+		trans = rotate(Math.PI);
 		tiles[2] = tiles[0].slice(0);
 		//rotate by 180
 		for (i=0;i<=3;i++){
@@ -369,19 +353,19 @@ function update_tess(){
 		//Move each tile to correct placement
 		// 1: moved so that points 0:0 = 1:2.
 			diff = tiles[0][0].sub(tiles[1][2]);
-			move = simple2d.translate(diff.x,diff.y);
+			move = translate(diff.x,diff.y);
 			for (i=0;i<=3;i++){
 				tiles[1][i] = move.mult(tiles[1][i]);
 			};	
 		// 2: moved such that point 1:3 = 2:1.
 			diff = tiles[1][3].sub(tiles[2][1]);
-			move = simple2d.translate(diff.x,diff.y);
+			move = translate(diff.x,diff.y);
 			for (i=0;i<=3;i++){
 				tiles[2][i] = move.mult(tiles[2][i]);
 			};	
 		// 3: moved such that point 0:1 = 3:3.
 			diff = tiles[0][1].sub(tiles[3][3]);
-			move = simple2d.translate(diff.x,diff.y);
+			move = translate(diff.x,diff.y);
 			for (i=0;i<=3;i++){
 				tiles[3][i] = move.mult(tiles[3][i]);
 			};		
@@ -389,7 +373,7 @@ function update_tess(){
 		//Trapezoid
 		//sneakily starting with quad2, as it is simply quad 0 rotated by 180 degress, no matter what theta is.
 		// 2: rotated by 180
-		trans = simple2d.rotate(Math.PI);
+		trans = rotate(Math.PI);
 
 		tiles[2] = tiles[0].slice(0);
 		//rotate by 180
@@ -401,7 +385,7 @@ function update_tess(){
 		//rotation transform (-theta... because that's how I set it up foolishly!)
 		tiles[1] = tiles[2].slice(0);
 
-		m_trans = trans.mult(simple2d.rotate(theta*Math.PI/180));
+		m_trans = trans.mult(rotate(theta*Math.PI/180));
 		
 		for (i=0;i<=3;i++){
 			tiles[1][i] = m_trans.mult(tiles[0][i]);
@@ -417,19 +401,19 @@ function update_tess(){
 	//Move each tile to correct placement
 		// 1: moved so that points 0:3 = 1:0.
 			diff = tiles[0][3].sub(tiles[1][0]);
-			move = simple2d.translate(diff.x,diff.y);
+			move = translate(diff.x,diff.y);
 			for (i=0;i<=3;i++){
 				tiles[1][i] = move.mult(tiles[1][i]);
 			};	
 		// 2: moved such that point 1:3 = 2:0.
 			diff = tiles[1][3].sub(tiles[2][0]);
-			move = simple2d.translate(diff.x,diff.y);
+			move = translate(diff.x,diff.y);
 			for (i=0;i<=3;i++){
 				tiles[2][i] = move.mult(tiles[2][i]);
 			};	
 		// 3: moved such that point 0:0 = 3:3.
 			diff = tiles[0][0].sub(tiles[3][3]);
-			move = simple2d.translate(diff.x,diff.y);
+			move = translate(diff.x,diff.y);
 			for (i=0;i<=3;i++){
 				tiles[3][i] = move.mult(tiles[3][i]);
 			};		
@@ -444,8 +428,8 @@ function update_tess(){
 	}
 
 	rotate_by = Math.atan2(current_angle.x,current_angle.y);
-	rot_trans = simple2d.rotate(rotate_by);
-	rot_trans = rot_trans.mult(simple2d.rotate(Math.PI/2));
+	rot_trans = rotate(rotate_by);
+	rot_trans = rot_trans.mult(rotate(Math.PI/2));
 
 	for (j=0;j<=3;j++){
 		for (i=0;i<=3;i++){
@@ -465,8 +449,8 @@ function update_tess(){
 	}
 	
 	//centre centroid
-	c = simple2d.centroid(tiles[0][0],tiles[0][2],tiles[0][1],tiles[0][3]);
-	trans_by = simple2d.translate(-c.x,-c.y)
+	c = centroid(tiles[0][0],tiles[0][2],tiles[0][1],tiles[0][3]);
+	trans_by = translate(-c.x,-c.y)
 	for (j=0;j<=3;j++){
 		for (i=0;i<=3;i++){
 			tiles[j][i] = trans_by.mult(tiles[j][i]);
@@ -578,7 +562,7 @@ tilecolours[1] = 'rgba(255,245,50,50)'; //yellow
 tilecolours[2] = 'rgba(90,240,70,50)'; //green
 tilecolours[3] = 'rgba(80,150,225,50)'; //blue
 
-var centre = new simple2d.Point(0,0); //centre of 'tiles' on ht_canvas
+var centre = new Point(0,0); //centre of 'tiles' on ht_canvas
 
 var c_dragtool;
 
@@ -650,12 +634,12 @@ $(document).ready(function() {
 	//Init Cyclic Quadrilateral
     //four random points on unit circle
     for (i=0;i<=3;i++){
-        temp_vec = new simple2d.Point(Math.random()-0.5,Math.random()-0.5);
+        temp_vec = new Point(Math.random()-0.5,Math.random()-0.5);
         temp_vec = temp_vec.normalise();
-        cyclic_quad[i] = new simple2d.Point(temp_vec.x*70,temp_vec.y*70);
+        cyclic_quad[i] = new Point(temp_vec.x*70,temp_vec.y*70);
     }
 	//orders the points how I see them in my head!
-    cyclic_quad.sort(simple2d.angleBetween);
+    cyclic_quad.sort(angleBetween);
 	cyclic_quad.reverse();
     c_dragtool = new cyclic_dragtool();
     
@@ -668,10 +652,10 @@ $(document).ready(function() {
     trap_help[2] = Math.random()*190;
     trap_help[3] = Math.random()*(200-trap_help[2]);
 
-    trapezoid[0] = new simple2d.Point(100-trap_help[0],-h );
-    trapezoid[1] = new simple2d.Point(-100+trap_help[1], -h);
-    trapezoid[2] = new simple2d.Point(-100+trap_help[3], h);
-    trapezoid[3] = new simple2d.Point(100-trap_help[2], h );
+    trapezoid[0] = new Point(100-trap_help[0],-h );
+    trapezoid[1] = new Point(-100+trap_help[1], -h);
+    trapezoid[2] = new Point(-100+trap_help[3], h);
+    trapezoid[3] = new Point(100-trap_help[2], h );
 
 	cur_quad = trapezoid.slice(0);
 

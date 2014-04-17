@@ -6,11 +6,9 @@ nav_sort: 1
 
 ## Welcome
 
-This is the portfolio site of Al Grant, live and on the air! <br>
-I am a programmer, designer, maker, and fanatic about of all things art & engineering. <br>
-Every week I'll try to add a new project to the projects page, seeing as I have a back log of things to talk about!
-
+This is the portfolio site of Al Grant: programmer, designer, maker, and fanatic about of all things art & engineering!
 ![three-way-trammel-alpha.gif](/images/three-way-trammel-alpha.gif)
-<span class="caption"> I made this in January! It's a <a href="http://en.wikipedia.org/wiki/Trammel_of_Archimedes"> three way trammel </a>, this will be a future article!</span>
+<span class="caption"> I wanted a picture on the home page, so here's a three track <a href="http://en.wikipedia.org/wiki/Trammel_of_Archimedes">trammel</a> which I designed and built in January!</span>
 
-Projects written so far are about [Hinged Tessellations](/projects/hinged-tessellations), and [15 letter scrabble words](/projects/scrabble-15).  Future write ups include Skittle flavour combinations (are there _REALLLY_ an infinite number of them?) and an Inkscape extension I wrote which determines the centre of gravity of a bezier curve (greene's theorem!)
+### Updates
+The first projects I've added to the site are about [Hinged Tessellations](/projects/hinged-tessellations), and [15 letter scrabble words](/projects/scrabble-15).  Future articles include a my adventures in programming pop-up card generators, and an Inkscape extension I wrote which determines the centre of gravity of a bezier curve.

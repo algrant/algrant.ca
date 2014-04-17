@@ -218,7 +218,10 @@
 	}
 	
 
-
+	article ul, article ol
+	{
+		list-style: inherit;
+	}
 	section,
 	article
 	{

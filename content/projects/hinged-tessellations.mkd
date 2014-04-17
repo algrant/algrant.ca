@@ -1,13 +1,17 @@
-title: Hinged Tessellations
+title: Hinged Tessellations (Part1)
 slug: hinged-tessellations
 type: blog-article
 category: projects
 date: 2014-02-01
 tags: [geometry, javascript]
-title_img_src: http://img.svbtle.com/al4j2g38imlqww.gif
+title_img_src: /images/hinged-tessellations/hinge-tess-anim.gif
 
 snippet: >
     A tessellation is a set of figures which can cover the plane indefinitely. A hinged tessellation is a set of figures which not only cover the plane indefinitely, but has a set of hinges such that each figure can rotate about it's neighbours...
+
+
+extraCSS: ["http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css", /hingetessapp/css/hingetess.css]
+extraJS: ["http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js", /hingetessapp/js/canvasStack1v00.js,/hingetessapp/js/simple2d.js, /hingetessapp/js/hingetess.js]
 
 ---
 
@@ -32,7 +36,7 @@ Thus it was clear to me that not only regular polygons could work; as that shape
 
 ![blocks-to-trapezoid.png](/images/hinged-tessellations/blocks-to-trapezoid.png)
 
-**Cool**. I of course then sketched out some other trapezoids, and decided that potentially the reason why they can hinge so nicely is because their pairs of corners are both _supplementary_ (add up to 180°).  This seemed especially important due to the fact that when the hinges are 'open', all the holes seemed to be rectangular; thus any two adjoined corners + two right angles must equal 360°.
+**Cool**. I of course then sketched out some other trapezoids, and decided that potentially the reason why they can hinge so nicely is because their pairs of corners are both _supplementary_ (add up to 180°).  The idea of supplementary corner angles also makes sense 
 
 ![trapezoid-angles.png](/images/hinged-tessellations/trapezoid-angles.png)
 <span class="caption"> Angles a + b = 180° </span>
@@ -45,13 +49,75 @@ Given that a quadrilateral has 4 corners, there are two different way we can set
 
 I knew that one can actually tile the cyclic quadrilateral (because it's been proven that one can tile [all quadrilaterals](http://euler.slu.edu/escher/index.php/Tessellations_by_Polygons#Tessellations_by_Quadrilaterals)), but looking at that tessellation (see below) it is pretty clearly not hingeable.
 
-[![tiles-well.png](https://d23f6h5jpj26xu.cloudfront.net/85ewj3pmwha1ga_small.png)](http://img.svbtle.com/85ewj3pmwha1ga.png)
+![tiles-well.png](/images/hinged-tessellations/tiles-well.png)
 
 I first tried a few times tessellating just the cyclic quads in a similar fashion to the trapezoids, but it was apparent that they wouldn't line up correctly.  On a whim I mirrored a couple of the pieces, and then I was pretty certain I had a hingeable structure!
 
-[![fold-it.png](https://d23f6h5jpj26xu.cloudfront.net/n6tnhu7os6maeq_small.png)](http://img.svbtle.com/n6tnhu7os6maeq.png)
+![fold-it.png](/images/hinged-tessellations/fold-it.png)
+<span class="caption"> Blue tiles are mirror images, see how edges all lie on a line (left and right) or lie parallel to one another (top and bottom) </span>
 
-The next step was trying to come up with a geometric proof, but as I had no good idea of how to go about it I ended up writing a little [javascript/canvas application](/hingedtessapp) which would let you at least try all of them. (Sorry for the bugs, but this was from a few years back and one of my first forays into programming for the web!)
+The next step was trying to come up with a geometric proof, but as I had no good idea of how to go about it I ended up writing this little javascript/canvas app which would let you try all of them!
 
 
- 
+<div id = "hinged-tess-example">
+    <div id = "title-box">
+        <h1> Hinged Tessellation Generator </h1>
+    </div>
+    <div class="clear"></div>
+    <div id = "ui-container">
+        <div id="ui-col1">
+        <br>
+        <p>
+            Try moving the vertices, switching from a trapezoid to a cyclic quadrilateral, and changing the angle at which the tessellation is open! </p>
+        </div>
+        <div id="ui-col2">
+            <div id='quadrilateral-option'>
+                <input type='radio' name='task-sort' id='trap' checked><label id="trap_label" for='trap'>trapezoid</label>
+                <input type='radio' name='task-sort' id='cyclic'><label id="cyclic_label"  for='cyclic'>cyclic</label>
+            </div>
+            <div id="quad_canvas" style="position:relative; width:200px; height:200px"></div>
+        </div>
+        <div id = "ui-col3">
+            <div id = "theta-slider">
+                    <label > Angle Open: </label>
+                    <div id="sliderInput-slider" class="ui-slider-1" style="margin:10px;">
+                        <div class="ui-slider-handle"></div>
+                    </div>
+                    <input type="text" class="sliderInput-input" id="slider-input" />
+            </div>
+            <div id = "option-buttons">
+                <input type="checkbox" id="show_grid" width="200px"/><label for="show_grid" width="200px">Show Grid</label>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div id = "tessellation-canvas">
+        <div id="hta_tess">
+                <canvas id="tess_canvas" width="600" height="600"></canvas>
+            </div>
+    </div>
+    <div id = "footer">
+    </div>
+</div>
+
+The app has a standalone page [here](/hingedtessapp).  There are some odd bugs I can't seem to iron out right now, occasionally doubling the size of some tiles at 0, 90 and 180 degrees; probably some odd division error somewhere.  The code can be viewed on github at [github.com/algrant/hinged-tess-app](http://github.com/algrant/hinged-tess-app).
+
+## Future Work
+
+So you may have noticed that the title of this post ends with (Part 1).  This is because I have done a lot more work following this, but am not in the mood to organise and write it all up just now!
+
+These include:
+
+* Eventually doing some real math and determining various relationships between expansion rates and interior angles.
+* Creating physical representations of these toys.
+* Determining the rules for making 'Escher' style tiles which can still hinge.
+
+
+As a teaser, here's the first physical model I built (with a laser cutter and some time/effort)
+
+
+<div style="width: 100%; padding-bottom:66%; position:relative">
+	<iframe src="//player.vimeo.com/video/61608664" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="    position: absolute; top: 0; left: 0; height:100%"></iframe> 
+</div>
+
