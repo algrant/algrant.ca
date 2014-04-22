@@ -1,0 +1,36 @@
+title: Centre of Gravity for Bezier Curves
+slug: centre-of-gravity-bezier-curves
+type: blog-article
+category: projects
+date: 2014-04-01
+tags: [geometry, python, inkscape]
+title_img_src: /images/hinged-tessellations/hinge-tess-anim.gif
+
+snippet: >
+    A tessellation is a set of figures which can cover the plane indefinitely. A hinged tessellation is a set of figures which not only cover the plane indefinitely, but has a set of hinges such that each figure can rotate about it's neighbours...
+
+---
+
+I wanted to create a balancing toy for my friends' wedding, loosely based on this:
+![Amaluna Balancing Woman](/images/cog-bezier/lara-jacobs-rigolo_2.jpg)
+<span class="caption"> Lara Jacobs, balance act from <a href="http://www.rigolo.ch/balance/artists/larajacobs/?lang=en">  Rigolo Swiss Nouveau Cirque</a></span>
+
+If you cannot tell she has about 15 different sized pieces of grass (or palm fronds?) which she has balanced one upon the other, slowly creating this eerily beautiful swaying structure.  I saw this act performed and immediately wanted to try it, and then decided it would be quite fun to make a smaller more portable version which people could use as a desk toy.
+
+At the time I had access to a laser cutter and thus (when you have a hammer) I decided to generate some flat 'grass fronds' which could be balanced.
+
+For most of my laser cutter projects I'd mainly used Inkscape, as it's a free open source vector graphics program - with a number of features that I have learned to love.  One thing I immediately noted was missing, which would be very necessary for this project, is any means of determining centre of gravity.
+
+Currently Inkscape, my vector program of choice, can not determine centre of gravity - so I decided I would create my own extension to do this for me!
+
+I first spent some time researching how one might determine the area (weight in the 2D case) and centre of gravity of a bezier curve; I came across a few different approaches, but the one that seemed most elegant was using a form of Green's theorem.  Unfortunately I didn't actually remember that much about vector calculus at the time so I ended up going to [Khan Academy](https://www.khanacademy.org) and zipping through the [Multivarible Calculus Section](https://www.khanacademy.org/math/multivariable-calculus).
+
+After doing that I can now explain the math!
+
+## Math and Bezier Curves
+
+There are a lot of places which talk about math and bezier curves, 
+
+
+### Area, Centre of Gravity and Greene's Theorem
+In high level terms we can define area as a sum of 
