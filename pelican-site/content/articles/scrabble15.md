@@ -1,0 +1,117 @@
+---
+title: Fifteen Letter Scrabble Words
+slug: scrabble-15
+type: blog-article
+category: Projects
+date: 2014-01-25
+tags: [wordgames, python]
+thumbnail: /images/scrabble15/scrabble15.jpg
+snippet: >
+    The other evening while playing Scrabble I was thinking about the biggest word one could actually play. Obviously 8 letter words come up often, and coming up with 9 letter examples is also quite straight forward. 
+extraCSS: 
+  - /assets/FlexSlider-version-2.2/flexslider.css
+  - /css/autumn.css
+
+earlyJS: 
+  - https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
+  - "/#"
+---
+The other evening while playing Scrabble I was thinking about the biggest word one could actually play. Obviously 8 letter words come up often, and coming up with 9 letter examples are also quite straight forward. Given that a Scrabble board is 15x15, _clearly_ the challenge would be finding 15 letter words. In that evening we came up with a few examples, the only one I can currently recall having organically puzzled out is "inter<strong>national</strong>ly".
+
+A couple of days later this puzzle popped back into my head (somehow during exam period I always feel the need to solve trivial problems) and so I quickly wrote a Python script to find all possible solutions within a dictionary.  This proved to be rather straight forward and in fifteen seconds it spat out a list of 771 words: from <strong>abstract</strong>ionisms to woebe<strong>goneness</strong>es (which according to the<a href="http://www.puzzlers.org/dokuwiki/doku.php?id=solving:wordlists:about:start"> enable word list</a> are real Scrabble playable words).
+
+The next (obvious?) question for me was whether or not one could fit six 15 letter words in a Scrabble game, covering each triple word score in both directions. This proved to be far more challenging; seeing as the only way to find solutions is to search through the solution space, which in our case is any combination of six fifteen letter words, or 771^6 = 2.1*10^17.
+
+The trick was to try and cut down on potential solutions by disqualifying as many words as early as possible in the algorithm. I did this in a few ways; first I reduced the number of words to search through by looking only at the letters in the crossing points (first, middle, last). Many words became the same then, like '<span style="text-decoration: underline;">d</span>isappo<span style="text-decoration: underline;">i</span>ntment<span style="text-decoration: underline;">s</span>' and '<span style="text-decoration: underline;">d</span>iscont<span style="text-decoration: underline;">i</span>nuance<span style="text-decoration: underline;">s</span>' are both looked at as 'dis'. I then made three dictionaries, the first two map all the one and two letter prefixes to their triples, the third maps triples to their full words.  This allows for a quick look up of allowable words given one, two or three constraints.  I learned later that I essentially created a [prefix tree, or a trie](http://en.wikipedia.org/wiki/Trie), which are is often used in algorithms for text prediction and spell checks.
+
+With these dictionaries it's still necessary to run loops within loops, but the inner loops get progressively smaller as we can quickly look up the words that match the necessary constraints. It takes about a minute to run on my machine, and it finds that there are only 18 working configurations. I subsequently wrote another script which can generate gifs of the scrabble boards being filled! 
+
+<div id="scrabble-gallery">
+  <div class="flexslider">
+    <ul class="slides">
+      <li>
+        <img src="/images/scrabble15/winningBoards/board00.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board01.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board02.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board03.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board04.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board05.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board06.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board07.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board08.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board09.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board10.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board11.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board12.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board13.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board14.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board15.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board16.gif" />
+      </li>
+      <li>
+        <img src="/images/scrabble15/winningBoards/board17.gif" />
+      </li>
+    </ul>
+  </div>
+
+  <style>
+
+  .flexslider { width: 90%; margin: 0 auto; }
+  .flexslider .slides img {
+    margin: auto;
+  }
+  </style>
+
+  <script src="/assets/FlexSlider-version-2.2/jquery.flexslider-min.js"></script>
+  <script>
+      $(window).on('load', function() {
+        $('.flexslider').flexslider({
+          animation: "slide",
+          slideshow:false
+        });
+      });
+  </script>
+</div>
+
+
+#Next Steps
+
+The only question I'm left asking with this project is, what are the final scores?
+
+While solving this puzzle I had a couple other questions come to mind. First would be determining achievable positions from which no word could possibly be added; I've never been in such a situation, but I feel like it would be pretty funny! Second would "simply" be generating the highest possible Scrabble score. Both of these questions are likely to be a lot more challenging as there are probably too many outcomes to check with a brute force method.
+
+Here's the link to my [github Scrabble 15 project](http://github.com/algrant/scrabble15) where you can find all the project code.
+
+I'm glad that should I ever choose to tackle these I'll have some pre-existing code to generate pretty output!
