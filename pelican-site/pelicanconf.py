@@ -52,7 +52,7 @@ TAGS_SAVE_AS = 'tags/index.html'
 READERS = {"html": None}
 
 PLUGIN_PATHS = ["/Users/algrant/projects/pelican-plugins", "./plugins"]
-PLUGINS = ["pelican-md-metayaml"]
+PLUGINS = ["pelican-md-metayaml", "summary", "render_math"]
 
 
 DISPLAY_CATEGORIES_ON_MENU = False

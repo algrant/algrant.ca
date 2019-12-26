@@ -1,0 +1,5 @@
+conda activate algrant-pelican
+# with debug
+pelican -D
+# livereload
+invoke livereload

@@ -22,8 +22,8 @@ CONFIG = {
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
     'deploy_path': SETTINGS['OUTPUT_PATH'],
     # Remote server configuration
-    'production': 'angrant@localhost:22',
-    'dest_path': '/algrant/www',
+    'production': 'agentapple@v2.algrant.ca',
+    'dest_path': '/home/agentapple/v2.algrant.ca',
     # Github Pages configuration
     'github_pages_branch': 'master',
     'commit_message': "'Publish site on {}'".format(datetime.date.today().isoformat()),
