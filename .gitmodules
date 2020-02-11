@@ -1,3 +1,6 @@
 [submodule "pelican-site/plugins/pelican-md-metayaml"]
 	path = pelican-site/plugins/pelican-md-metayaml
 	url = https://github.com/joachimneu/pelican-md-metayaml
+[submodule "pelican-site/plugins/python-markdown-yaml-meta-data"]
+	path = pelican-site/plugins/python-markdown-yaml-meta-data
+	url = git@github.com:algrant/python-markdown-yaml-meta-data.git
