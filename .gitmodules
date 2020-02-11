@@ -1,0 +1,3 @@
+[submodule "pelican-site/plugins/pelican-md-metayaml"]
+	path = pelican-site/plugins/pelican-md-metayaml
+	url = git@github.com:algrant/pelican-md-metayaml.git
