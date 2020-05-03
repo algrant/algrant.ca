@@ -1,0 +1,132 @@
+body
+{
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  /* width: 480px;
+  height: 400px; */
+  width: 600px;
+  height: 600px;
+  transform: rotate(0deg);
+  animation: rotateAll 8s ease-in-out infinite;
+}
+
+svg:hover{
+  animation: hoverRot 1s;
+}
+
+@keyframes hoverRot {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAll {
+  0% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }  
+  50% {
+    transform: rotate(180deg);
+  }
+  90% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+path
+{
+  stroke-linecap: round;
+  stroke: #3de;
+  stroke-width: 7px;
+  fill: transparent;
+  /* animation-name: animate;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--animation-duration) * 1ms);
+  animation-delay: calc(var(--animation-delay) * 1ms);
+  animation-timing-function: ease-in-out; */
+
+  stroke-dasharray: var(--dash-array);
+  stroke-dashoffset: var(--dash-array);
+  /* var(--dash-array); */
+
+  animation: animate calc(var(--animation-duration) * 1ms) ease-in-out calc(var(--animation-delay) * 1ms) forwards;
+}
+.reversed
+{
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate {
+  to {
+    stroke-dashoffset: var(--dash-offset);
+  }
+}
+
+#first_chunk :nth-child(2) path {
+  stroke: #3e3;
+}
+
+#mid_chunk .inlines path {
+  animation: animate calc(var(--animation-duration) * 1ms) ease-in-out calc(var(--animation-delay) * 1ms) forwards, midcolours 8s linear infinite;
+}
+
+
+svg:hover #mid_chunk .inlines path {
+  animation-play-state: paused;
+}
+
+/* @keyframes hoverColour {
+  to {
+    stroke: #3de;
+  }
+} */
+
+@keyframes midcolours {
+  0% {
+    stroke: #3de;
+  }
+  40% {
+    stroke: #3de;
+  }  
+  50% {
+    stroke: #3e3;
+  }
+  90% {
+    stroke: #3e3;
+  }
+  100% {
+    stroke: #3de;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    rotation: 0;
+  }
+  45% {
+    rotation: 0;
+  }
+  55% {
+    rotation: 180;
+  }
+  100% {
+    rotation: 180;
+  }
+}
+
+.outlines > path
+{
+  stroke-width: 9px;
+  stroke: #000;
+}
