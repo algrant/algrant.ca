@@ -9,12 +9,12 @@ svg {
   height: 400px; */
   width: 600px;
   height: 600px;
-  transform: rotate(0deg);
-  animation: rotateAll 8s ease-in-out infinite;
+  /* transform: rotate(0deg); */
 }
+  /* animation: rotateAll 8s ease-in-out infinite; */
 
-svg:hover{
-  animation: hoverRot 1s;
+svg:hover {
+  /* animation: hoverRot 1s; */
 }
 
 @keyframes hoverRot {
@@ -47,20 +47,14 @@ svg:hover{
 path
 {
   stroke-linecap: round;
-  stroke: #3de;
+  stroke: #8de;
   stroke-width: 7px;
   fill: transparent;
-  /* animation-name: animate;
-  animation-fill-mode: forwards;
-  animation-duration: calc(var(--animation-duration) * 1ms);
-  animation-delay: calc(var(--animation-delay) * 1ms);
-  animation-timing-function: ease-in-out; */
-
   stroke-dasharray: var(--dash-array);
   stroke-dashoffset: var(--dash-array);
-  /* var(--dash-array); */
+  /* stroke-dashoffset: var(--dash-offset); */
 
-  animation: animate calc(var(--animation-duration) * 1ms) ease-in-out calc(var(--animation-delay) * 1ms) forwards;
+  /* animation: animate calc(var(--animation-duration) * 1ms) ease-in-out calc(var(--animation-delay) * 1ms) forwards; */
 }
 .reversed
 {
@@ -88,16 +82,16 @@ svg:hover #mid_chunk .inlines path {
 
 /* @keyframes hoverColour {
   to {
-    stroke: #3de;
+    stroke: #8de;
   }
 } */
 
 @keyframes midcolours {
   0% {
-    stroke: #3de;
+    stroke: #8de;
   }
   40% {
-    stroke: #3de;
+    stroke: #8de;
   }  
   50% {
     stroke: #3e3;
@@ -106,10 +100,10 @@ svg:hover #mid_chunk .inlines path {
     stroke: #3e3;
   }
   100% {
-    stroke: #3de;
+    stroke: #8de;
   }
 }
-
+/* 
 @keyframes rotate {
   0% {
     rotation: 0;
@@ -123,7 +117,7 @@ svg:hover #mid_chunk .inlines path {
   100% {
     rotation: 180;
   }
-}
+} */
 
 .outlines > path
 {
