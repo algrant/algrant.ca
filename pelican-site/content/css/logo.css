@@ -10,8 +10,9 @@ svg {
   width: 600px;
   height: 600px;
   /* transform: rotate(0deg); */
+  animation: rotateAll 8s ease-in-out infinite;
+
 }
-  /* animation: rotateAll 8s ease-in-out infinite; */
 
 svg:hover {
   /* animation: hoverRot 1s; */
@@ -54,7 +55,7 @@ path
   stroke-dashoffset: var(--dash-array);
   /* stroke-dashoffset: var(--dash-offset); */
 
-  /* animation: animate calc(var(--animation-duration) * 1ms) ease-in-out calc(var(--animation-delay) * 1ms) forwards; */
+  animation: animate calc(var(--animation-duration) * 1ms) ease-in-out calc(var(--animation-delay) * 1ms) forwards;
 }
 .reversed
 {
